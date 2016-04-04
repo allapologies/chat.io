@@ -1,13 +1,15 @@
 'use strict';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import MessageForm  from './containers/MessageForm';
+import MessageForm from './containers/MessageForm';
+import MessageList from './components/MessageList';
+import { messages } from './fixtures';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>Chat</h1>
+        <MessageList messages={ messages } />
         <MessageForm />
       </div>
     )
