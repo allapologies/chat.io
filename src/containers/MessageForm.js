@@ -14,12 +14,21 @@ class MessageForm extends Component {
       text: event.target.value
     });
   };
-  
+
+  onSubmitHandler = (event) => {
+    event.preventDefault();
+    // implement action to emit message
+    this.setState({ text:'' });
+  };
+
   render() {
     return (
       <div>
-        <form className='input-group'>
+        <form
+          className='input-group'
+          onSubmit={ this.onSubmitHandler }>
           <input
+            value={ this.state.text }
             onChange={ this.onInputChange }
             className='form-control'
             placeholder='type your message here...'

@@ -2,5 +2,5 @@
 import React from 'react';
 
 export default (props) => {
-  return <li key={props.message.id} className='message-item'>{props.message.author}: {props.message.text}</li>
+  return <li className='message-item'><strong>{props.message.author}</strong>: {props.message.text}</li>
 }
