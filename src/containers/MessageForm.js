@@ -1,5 +1,8 @@
 'use strict';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { sendMessage } from '../actions/messages';
 
 class MessageForm extends Component {
   constructor(){
@@ -18,7 +21,8 @@ class MessageForm extends Component {
   onSubmitHandler = (event) => {
     event.preventDefault();
     // implement action to emit message
-    this.props.submit(this.state.text);
+    console.log('Sending message from user', this.state.currentUser );
+    this.props.sendMessage({user: this.props.currentUser, text:this.state.text });
     this.setState({ text:'' });
   };
 
@@ -43,4 +47,13 @@ class MessageForm extends Component {
   };
 }
 
-export default MessageForm;
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  }
+};
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ sendMessage }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);

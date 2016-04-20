@@ -5,7 +5,7 @@ export default (state = messages, action) => {
   const { type, payload }= action;
   switch (type) {
     case SEND_MESSAGE: {
-      const newMessage ={ id: Date.now(), text: payload, author: "Sam" };
+      const newMessage ={ id: Date.now(), text: payload.text, author: payload.user };
       return state.concat(newMessage);
     }
   };

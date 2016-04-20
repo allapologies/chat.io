@@ -7,10 +7,10 @@ export function sendMessage(message) {
     payload: message
   }
 }
-
-export function getMessage(message) {
-  return {
-    type: GET_MESSAGE,
-    payload: { message }
-  }
-}
+//
+// export function getMessage(message) {
+//   return {
+//     type: GET_MESSAGE,
+//     payload: { message }
+//   }
+// }
