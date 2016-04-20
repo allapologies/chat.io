@@ -3,13 +3,25 @@ import React, { Component, PropTypes } from 'react';
 import LoginPage from './LoginPage';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
+import { connect }from 'react-redux';
+import { bindActionCreators }from 'redux';
 
 class AppContainer extends Component {
 
   render() {
+
+    const { currentUser } = this.props;
+    if (!currentUser) {
+      return (
+        <div className='loginBox'>
+          <LoginPage />
+        </div>
+      );
+    }
+
     return (
       <div>
-        <LoginPage />
+        <h3>Logged as: {currentUser}</h3>
         <MessageList />
         <MessageForm />
       </div>
@@ -17,4 +29,10 @@ class AppContainer extends Component {
   }
 }
 
-export default AppContainer;
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  };
+};
+
+export default connect(mapStateToProps)(AppContainer);
