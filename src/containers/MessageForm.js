@@ -7,7 +7,7 @@ class MessageForm extends Component {
     this.state = {
       text: ''
     }
-  };
+  };  
   
   onInputChange = (event) => {
     this.setState({
@@ -18,6 +18,7 @@ class MessageForm extends Component {
   onSubmitHandler = (event) => {
     event.preventDefault();
     // implement action to emit message
+    this.props.submit(this.state.text);
     this.setState({ text:'' });
   };
 
