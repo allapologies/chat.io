@@ -17,7 +17,10 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
-    historyApiFallback: true,
-    contentBase: './'
+    proxy: [{
+      path: '/api/*',
+      target: 'http://localhost:3001'
+    }],
+    historyApiFallback: true
   }
 };

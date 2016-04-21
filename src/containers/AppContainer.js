@@ -4,10 +4,8 @@ import LoginPage from './LoginPage';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import { connect }from 'react-redux';
-import { bindActionCreators }from 'redux';
 
 class AppContainer extends Component {
-
   render() {
 
     const { currentUser } = this.props;
