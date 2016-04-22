@@ -20,8 +20,7 @@ class MessageForm extends Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    // implement action to emit message
-    console.log('Sending message from user', this.state.currentUser );
+    if (!this.state.text.length) return;
     this.props.sendMessage({user: this.props.currentUser, text:this.state.text });
     this.setState({ text:'' });
   };
