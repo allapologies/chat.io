@@ -9,7 +9,6 @@ import DevTools from './containers/DevTools';
 import io from 'socket.io-client';
 import { addResponse } from './actions/messages';
 
-
 const socket = io.connect(`${location.protocol}//${location.hostname}:3001`);
 const enhancer = compose(
   applyMiddleware(chatMiddleware(socket)),
@@ -17,7 +16,6 @@ const enhancer = compose(
 );
 const store = createStore(reducers, {}, enhancer);
 socket.on('message', message => {
-  console.log('Incomming message', message);
   store.dispatch(addResponse(message));
 });
 

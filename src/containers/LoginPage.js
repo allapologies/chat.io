@@ -20,9 +20,7 @@ class LoginPage extends Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    // redirect to chat
     this.props.signIn(this.state.CurrentUser);
-    console.log('logged as', this.state.CurrentUser);
     this.setState({ CurrentUser:'' });
   };
 
